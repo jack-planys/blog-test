@@ -24,15 +24,18 @@
 	            <a href="#" class="brand">My Site</a>
 	            <ul class="nav">
 	                <li class="<?php echo Uri::segment(2) == '' ? 'active' : '' ?>">
-						<?php echo Html::anchor('admin', 'Dashboard') ?>
-					</li>
+                                <?php echo Html::anchor('admin', 'Dashboard') ?>
+                        </li>
+                        <li>
+                                <?php echo Html::anchor('blog', 'Blog') ?>
+                        </li>
 
-					<?php foreach (glob(APPPATH.'classes/controller/admin/*.php') as $controller): ?>
+                        <?php foreach (glob(APPPATH.'classes/controller/admin/*.php') as $controller): ?>
 
-						<?php
-						$section_segment = basename($controller, '.php');
-						$section_title = Inflector::humanize($section_segment);
-						?>
+                        <?php
+                        $section_segment = basename($controller, '.php');
+                        $section_title = Inflector::humanize($section_segment);
+                        ?>
 
 	                <li class="<?php echo Uri::segment(2) == $section_segment ? 'active' : '' ?>">
 						<?php echo Html::anchor('admin/'.$section_segment, $section_title) ?>
